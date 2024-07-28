@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">InternTasks-3A</string>
+
+    <string name="counter_button">INCREASE COUNTER</string>
+    <string name="default_counter_text">0</string>
+    <string name="switch_text">Use ViewModel</string>
+
 </resources>
