@@ -7,16 +7,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.interntasks_3a.databinding.FragmentNumberGuessBinding
 
 class NumberGuessFragment : Fragment() {
     private var _binding: FragmentNumberGuessBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel: NumberGuessViewModel by viewModels()
+    private val viewModel: NumberGuessViewModel by activityViewModels()
 
     var buttons = listOf<Button>()
     var guessNumber = 0
@@ -33,10 +35,7 @@ class NumberGuessFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.buttonStart.setOnClickListener {
-            viewModel.startNewGame()
-            binding.buttonStart.visibility = View.GONE
-        }
+        binding.guessText.text = ""
 
         observeData()
 
@@ -53,7 +52,8 @@ class NumberGuessFragment : Fragment() {
         }
 
         binding.buttonClear.setOnClickListener {
-            viewModel.startNewGame()
+            viewModel.randomNumber()
+            viewModel.randomChar()
             binding.guessText.text = "TEKRAR DENE"
         }
 
@@ -61,14 +61,13 @@ class NumberGuessFragment : Fragment() {
             viewModel.guessNumber(guessNumber)
             binding.guessText.text = viewModel.result.value
         }
+
+        binding.charText.setOnClickListener {
+            val action = NumberGuessFragmentDirections.actionNumberGuessFragmentToDetailFragment()
+            findNavController().navigate(action)
+        }
     }
     fun observeData(){
-        viewModel.startButton.observe(viewLifecycleOwner, Observer { boolen ->
-            if (boolen){
-                binding.buttonStart.visibility = View.GONE
-            }
-        })
-
         viewModel.char.observe(viewLifecycleOwner, Observer { char->
             binding.charText.text = char.toString()
         })

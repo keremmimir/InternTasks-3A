@@ -17,5 +17,8 @@
     <string name="button_clear">Clear</string>
     <string name="button_guess">Guess</string>
     <string name="button_start">START GAME</string>
+    <string name="char_text">Char Text</string>
+    <string name="guess_text">Guess Text</string>
+    <string name="randomNumber_text">Random Number</string>
 
 </resources>

@@ -10,12 +10,10 @@ class NumberGuessViewModel : ViewModel() {
     val number = MutableLiveData<Int>()
     val char = MutableLiveData<Char>()
     val result = MutableLiveData<String>()
-    val startButton = MutableLiveData<Boolean>()
 
-    fun startNewGame(){
+    init {
         randomNumber()
         randomChar()
-        startButton.value = true
     }
 
     fun randomNumber(){

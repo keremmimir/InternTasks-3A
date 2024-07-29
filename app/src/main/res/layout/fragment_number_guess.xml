@@ -10,7 +10,7 @@
         android:id="@+id/char_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=""
+        android:text="@string/char_text"
         android:textSize="@dimen/text_size_medium"
         app:layout_constraintBottom_toTopOf="@+id/constraintlayout2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -167,22 +167,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_small"
+            android:text="@string/guess_text"
             android:textSize="@dimen/text_size_small"
-            android:text=""
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <Button
-        android:id="@+id/button_start"
-        android:layout_marginTop="@dimen/text_size_large"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/button_start"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/char_text" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
