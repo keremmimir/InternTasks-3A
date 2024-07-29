@@ -16,5 +16,6 @@
     <string name="button0">0</string>
     <string name="button_clear">Clear</string>
     <string name="button_guess">Guess</string>
+    <string name="button_start">START GAME</string>
 
 </resources>

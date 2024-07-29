@@ -31,18 +31,18 @@ class CounterFragment : Fragment() {
 
         binding.switch1.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
-                binding.counterText.text=viewModel.viewModelCounter.toString()
+                binding.counterText.text = viewModel.viewModelCounter.toString()
 
                 binding.counterButton.setOnClickListener {
                     viewModel.counterNumber()
-                    binding.counterText.text=viewModel.viewModelCounter.toString()
+                    binding.counterText.text = viewModel.viewModelCounter.toString()
                 }
             } else {
                 binding.counterText.text=counter.toString()
 
                 binding.counterButton.setOnClickListener {
                     counter++
-                    binding.counterText.text=counter.toString()
+                    binding.counterText.text = counter.toString()
                 }
             }
         }
@@ -50,12 +50,12 @@ class CounterFragment : Fragment() {
         if (binding.switch1.isChecked){
             binding.counterButton.setOnClickListener {
                 viewModel.counterNumber()
-                binding.counterText.text=viewModel.viewModelCounter.toString()
+                binding.counterText.text = viewModel.viewModelCounter.toString()
             }
         }else{
             binding.counterButton.setOnClickListener {
                 counter++
-                binding.counterText.text=counter.toString()
+                binding.counterText.text = counter.toString()
             }
         }
     }
