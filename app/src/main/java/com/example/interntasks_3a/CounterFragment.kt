@@ -29,33 +29,34 @@ class CounterFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.switch1.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
-                binding.counterText.text = viewModel.viewModelCounter.toString()
+        with(binding){
+            switch1.setOnCheckedChangeListener { _, isChecked ->
+                if (isChecked) {
+                    counterText.text = viewModel.viewModelCounter.toString()
 
-                binding.counterButton.setOnClickListener {
+                    counterButton.setOnClickListener {
+                        viewModel.counterNumber()
+                        counterText.text = viewModel.viewModelCounter.toString()
+                    }
+                } else {
+                    counterText.text=counter.toString()
+
+                    counterButton.setOnClickListener {
+                        counter++
+                        counterText.text = counter.toString()
+                    }
+                }
+            }
+            if (switch1.isChecked){
+                counterButton.setOnClickListener {
                     viewModel.counterNumber()
-                    binding.counterText.text = viewModel.viewModelCounter.toString()
+                    counterText.text = viewModel.viewModelCounter.toString()
                 }
-            } else {
-                binding.counterText.text=counter.toString()
-
-                binding.counterButton.setOnClickListener {
+            }else{
+                counterButton.setOnClickListener {
                     counter++
-                    binding.counterText.text = counter.toString()
+                    counterText.text = counter.toString()
                 }
-            }
-        }
-
-        if (binding.switch1.isChecked){
-            binding.counterButton.setOnClickListener {
-                viewModel.counterNumber()
-                binding.counterText.text = viewModel.viewModelCounter.toString()
-            }
-        }else{
-            binding.counterButton.setOnClickListener {
-                counter++
-                binding.counterText.text = counter.toString()
             }
         }
     }

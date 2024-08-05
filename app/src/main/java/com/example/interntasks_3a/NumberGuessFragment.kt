@@ -51,22 +51,25 @@ class NumberGuessFragment : Fragment() {
             }
         }
 
-        binding.buttonClear.setOnClickListener {
-            viewModel.randomNumber()
-            viewModel.randomChar()
-            binding.guessText.text = "TEKRAR DENE"
-        }
+        with(binding){
+            buttonClear.setOnClickListener {
+                viewModel.randomNumber()
+                viewModel.randomChar()
+                guessText.text = Constants.RESULT_TRY_AGAIN
+            }
 
-        binding.buttonGuess.setOnClickListener {
-            viewModel.guessNumber(guessNumber)
-            binding.guessText.text = viewModel.result.value
-        }
+            buttonGuess.setOnClickListener {
+                viewModel.guessNumber(guessNumber)
+                guessText.text = viewModel.result.value
+            }
 
-        binding.charText.setOnClickListener {
-            val action = NumberGuessFragmentDirections.actionNumberGuessFragmentToDetailFragment()
-            findNavController().navigate(action)
+            charText.setOnClickListener {
+                val action = NumberGuessFragmentDirections.actionNumberGuessFragmentToDetailFragment()
+                findNavController().navigate(action)
+            }
         }
     }
+
     fun observeData(){
         viewModel.char.observe(viewLifecycleOwner, Observer { char->
             binding.charText.text = char.toString()
