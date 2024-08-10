@@ -1,3 +1,24 @@
 <resources>
     <string name="app_name">InternTasks-3A</string>
+
+    <string name="counter_button">INCREASE COUNTER</string>
+    <string name="default_counter_text">0</string>
+    <string name="switch_text">Use ViewModel</string>
+    <string name="button1">1</string>
+    <string name="button2">2</string>
+    <string name="button3">3</string>
+    <string name="button4">4</string>
+    <string name="button5">5</string>
+    <string name="button6">6</string>
+    <string name="button7">7</string>
+    <string name="button8">8</string>
+    <string name="button9">9</string>
+    <string name="button0">0</string>
+    <string name="button_clear">Clear</string>
+    <string name="button_guess">Guess</string>
+    <string name="button_start">START GAME</string>
+    <string name="char_text">Char Text</string>
+    <string name="guess_text">Guess Text</string>
+    <string name="randomNumber_text">Random Number</string>
+
 </resources>
